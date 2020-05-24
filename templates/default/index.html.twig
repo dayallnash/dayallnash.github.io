@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Tides Index{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h1>Tides</h1>
+        {% for station in stations %}
+            <div class="row">
+                <div class="col-3">
+                    <a href="{{ path('tides', {'id': station.properties.Id, 'name': station.properties.Name}) }}">{{ station.properties.Name }}</a>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ name }} Tides{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <a class="col-2 my-auto" href="{{ path('index') }}"><button class="btn btn-primary">&larr;</button></a>
+            <h1 class="col">{{ name }}</h1>
+        </div>
+        {% for row in info %}
+            {% if row.previous == true %}
+                <div class="card">
+                    <div class="card-header">
+                        PREVIOUS TIDAL EVENT
+                    </div>
+                    <div class="card-body">
+            {% elseif row.next == true %}
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        NEXT TIDAL EVENT
+                    </div>
+                    <div class="card-body">
+            {% endif %}
+            <div>
+                {{ row.EventType }}
+            </div>
+            <div>
+                {{ row.DateTime }} <strong>{{ row.Height }}m</strong>
+            </div>
+            {% if row.next == true %}
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        FUTURE TIDAL EVENTS
+                    </div>
+                    <div class="card-body">
+            {% endif %}
+            {% if row.previous == true %}
+                </div>
+            {% endif %}
+        {% endfor %}
+        </div>
+    </div>
+{% endblock %}

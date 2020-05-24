@@ -1,0 +1,7 @@
+index:
+    path: /
+    controller: App\Controller\DefaultController::index
+
+tides:
+    path: /tides
+    controller: App\Controller\DefaultController::tides
