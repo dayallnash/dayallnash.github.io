@@ -1,0 +1,36 @@
+---
+layout: post
+title: Inspiring others to learn can be hard
+---
+
+# Inspiring others to learn can be hard
+
+Lately I have been working on a project to migrate our sites from running on old dedicated hardware at a medium-size UK hosting provider, which we pay an awfully high maintenance cost for, to AWS. Last month I migrated 1 of the sites, and this month the project will reach its perihelion as I migrate the 7 remaining ones.
+
+The architecture of The Cloud is vastly different to the simple LAMP stack we run with our hosting provider. It's a growing beast containing an EKS cluster, several CloudFront distributions, Lambda@Edge functions and numerous other bits and pieces holding it all together. Though it's more complex, it's designed to be cheaper and give us much more observability than we've ever had before. When we need changes made to our infrastructure, instead of having to submit a ticket, wait 2 days, chase the ticket, talk to the assigned agent on a long back and forth, then finally check their working before signing it off, we can simply look at the IaC and make the changes as needed. We can iterate faster, and we can understand easier.
+
+Or at least, that's how it should be.
+
+In actual fact, the only person on the team who has taken the time to learn about how AWS / DevOps works is me. And I can see why! It's scary having to try to understand something new when it's so important not to make a mistake when working on it. It's frustrating and ungratifiying to have to wait minutes for pipelines to complete (and fail) - we're web developers for a reason! No compile time necessary here! And yet, DevOps for the web is full of waiting for Docker builds, pipelines and Terraform applications to complete.
+
+I was lucky. I was involved in the AWS migration project from the very start. At first, just as senior developer support for the AWS Partners supposed to be doing the migratory work for us, but then - through a lot of self-learning and personal development time, and because the AWS Partner let us down - as the person who is going to get the project over the line. I'm not saying this to [toot](https://mastodon.social/@dale@mastodon.social) my own horn, but just to give you a picture that I was very lucky to get to work on the project and be given the time to learn at an early stage where making a mistake on configuring a VPC security group, or exposing an RDS instance to the public web wouldn't have meant the end of the world - because nothing important ran on it yet.
+
+My colleagues aren't so lucky. They need to get up to speed with the new world as soon as possible in order for us to stand a chance at being able to manage a large-scale operation like this. And they don't have the same luxury that I did of making mistakes. If they muck something up now, there's a chance that that mistake, if it's not caught, could end up on a Production system where there are millions on the line. Data to be lost. Fines to be awarded.
+
+And so, being developers working in eCommerce, they take the most risk-averse road of doing nothing.
+
+The project stalls; how can we go ahead without in-house expertise on how to use AWS? This is recognised by Those In Charge. I am asked to "Knowledge Share".
+
+2 meetings are scheduled. The first, a 30 minute presentation where I attempt to give every engineer an overview of how things currently work and the various foibles (mainly for those new to the company), and where we hope to be once we complete the move to AWS. I try to extoll the virtues of how easy it is to make changes. I show off the Terraform IaC, the small mountain of documentation I have written about it, and a little demo of how our local dev environment will change to mimic the k8s architecture we will soon be developing for. The whole thing is recorded too so anybody can watch it back in the future. There is time at the end for questions. 
+
+There are no questions.
+
+That there were no questions asked in that first meeting should have been a warning flag to me, but instead I left the call feeling positive, happy that I had managed to communicate so effectively that everybody understood so well that nobody needed to ask any questions. In reality, the bombardment was an information overload, and everyone was left stunned at the paradigm shift they were going to need to get used to. I think at this point, some of the more junior devs started to bury their heads in the sand. The temptation must have been there to assume that somebody else will understand. Somebody more senior. Somebody who knows what they are doing.
+
+Unfortunately, there is nobody else who understands.
+
+The second meeting comes around, and I have structured this one as a "Q&A" style affair. 2 weeks prior, I sent a reading list of documentation and articles about various things I think everyone needs to know. Things like pod lifecycles, horizontal autoscaling, and how to setup our local machines to connect to the Staging and Production kubecontexts. I ask for questions to be submitted to me at least 2 days in advance. "It doesn't matter how big or small the question, or whether you think I'll know the answer. If I don't know the answer, we'll work together to come up with an answer". 2 days before the Q&A, I send out some feelers on Slack to try to see how people have gotten on with the reading; whether they have any questions. Everything sounds positive. No questions though.
+
+When the session comes around, I'm reminded of my university lecturers leading seminars for students who clearly hadn't read the material. Suddenly it all falls into place, and it clicks with me what has been happening this whole time. And so I have to try to remember how those lecturers dealt with this; and the Q&A turns into a lecture again.
+
+That brings us to the present day. And so I am looking for resources on inspiring others to learn outside of their comfort zone. What are some ways you encourage your colleagues to learn new skills and technologies? How do you inspire them to overcome that fear of the unknown?
